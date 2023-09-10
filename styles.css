@@ -25,17 +25,17 @@
   .project {
     margin-top: 15px;
     background-color: aqua;
-    height: 100vh;
+    height: 70vh;
     width: 50%;
   }
   
   /* Style for the project list div */
   .project-list {
-    /* Add styles for the project list */
+    background-color: aqua;
+    height: 100vh;
+    width: 50%;
   }
-  
-  /* Style for the Add Project button */
-  .project-btn {
-    /* Add styles for the Add Project button */
+  .content{
+    display: flex;
+
   }
-  

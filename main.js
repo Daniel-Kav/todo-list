@@ -1,30 +1,5 @@
 const content = document.querySelector('.content');
-const container = document.createElement('div');
 
-// Create a navigation bar div
-const navBar = document.createElement('div');
-navBar.className = 'navbar';
-
-// Create navigation links
-const homeLink = document.createElement('a');
-homeLink.href = '#'; // Set the appropriate href value
-homeLink.textContent = 'Home';
-
-const projectsLink = document.createElement('a');
-projectsLink.href = '#'; // Set the appropriate href value
-projectsLink.textContent = 'Projects';
-
-const aboutLink = document.createElement('a');
-aboutLink.href = '#'; // Set the appropriate href value
-aboutLink.textContent = 'About';
-
-// Append the navigation links to the navigation bar
-navBar.appendChild(homeLink);
-navBar.appendChild(projectsLink);
-navBar.appendChild(aboutLink);
-
-// Append the navigation bar to the content div
-content.appendChild(navBar);
 
 // Create a project div
 const projectDiv = document.createElement('div');
