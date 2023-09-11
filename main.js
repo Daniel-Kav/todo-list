@@ -24,10 +24,11 @@ const addTaskBtn = document.createElement("button");
 addTaskBtn.innerHTML = "Add Task";
 
 projectDiv.appendChild(projectBtn);
-projectDiv.appendChild(projectList);
+content.appendChild(projectDiv);
+content.appendChild(projectList);
 projectDiv.appendChild(taskInput);
 projectDiv.appendChild(addTaskBtn);
-content.appendChild(projectDiv);
+
 
 projectBtn.addEventListener("click", addProject);
 addTaskBtn.addEventListener("click", addTask);

@@ -30,4 +30,13 @@
   margin: 5px;
   padding: 10px;
 }
+.project-list-item{
+  background-color: rgb(from color r g b);
+  height: 20px;
+  border-bottom: 2px solid #333;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  padding: 20px;
+}
 
