@@ -37,6 +37,27 @@ function addProject() {
   })
 }
 
+function addTask(){
+  const newTask = document.querySelector(".nameInput");
+  if (newTask.trim !== ""){
+    tasks.push({title: newTask,status: "completed"});
+    document.querySelector(".nameInput").value = "";
+    alert("task finished");
+  }
+}
+
+function listTasks() {
+  const taskList = document.querySelector(".addList");
+  taskList.innerHTML = ""; // Clear the existing list
+
+  tasks.forEach((task, index) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = `[${task.status}] ${task.title}`;
+      taskList.appendChild(listItem);
+  });
+
+}
+
 function removeProject() {
   // Your removeProject function logic here
 }
