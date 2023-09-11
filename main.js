@@ -1,6 +1,8 @@
 const content = document.querySelector('.content');
 
+const projects = [];
 const tasks = [];
+
 // Create a project div
 const projectDiv = document.createElement('div');
 projectDiv.className = 'project';
@@ -14,51 +16,88 @@ const projectBtn = document.createElement('button');
 projectBtn.className = 'project-btn';
 projectBtn.innerHTML = 'Add Project';
 
+// Create a task input and button
+const taskInput = document.createElement("input");
+taskInput.type = "text";
+taskInput.classList.add("task-input");
+const addTaskBtn = document.createElement("button");
+addTaskBtn.innerHTML = "Add Task";
+
 projectDiv.appendChild(projectBtn);
+projectDiv.appendChild(projectList);
+projectDiv.appendChild(taskInput);
+projectDiv.appendChild(addTaskBtn);
 content.appendChild(projectDiv);
-content.appendChild(projectList);
+
+projectBtn.addEventListener("click", addProject);
+addTaskBtn.addEventListener("click", addTask);
 
 function addProject() {
-  // Your addProject function logic here
-  projectBtn.addEventListener("click", () => {
-    alert("Add Project");
-    const addList = document.createElement("div");
-    addList.className = "projectList";
-    const projectForm = document.createElement("form");
-    projectForm.classList.add("projectForm");
-    
-    const nameInput = document.createElement("input");
-    nameInput.type = "text";
-    nameInput.classList.add("nameInput");
-    projectForm.appendChild(nameInput);
-
-    addList.appendChild(projectForm);
-    projectDiv.appendChild(addList);
-  })
-}
-
-function addTask(){
-  const newTask = document.querySelector(".nameInput");
-  if (newTask.trim !== ""){
-    tasks.push({title: newTask,status: "completed"});
-    document.querySelector(".nameInput").value = "";
-    alert("task finished");
+  const projectName = prompt("Enter the project name:");
+  if (projectName) {
+    const project = {
+      name: projectName,
+      tasks: [],
+    };
+    projects.push(project);
+    updateProjectList();
   }
 }
 
-function listTasks() {
-  const taskList = document.querySelector(".addList");
-  taskList.innerHTML = ""; // Clear the existing list
+function updateProjectList() {
+  projectList.innerHTML = ""; // Clear the existing list
 
-  tasks.forEach((task, index) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = `[${task.status}] ${task.title}`;
-      taskList.appendChild(listItem);
+  projects.forEach((project, index) => {
+    const listItem = document.createElement("div");
+    listItem.className = "project-list-item";
+    listItem.innerHTML = `<span>${project.name}</span>`;
+
+    // Add a button to remove the project
+    const removeBtn = document.createElement("button");
+    removeBtn.innerHTML = "Remove";
+    removeBtn.addEventListener("click", () => removeProject(index));
+    
+    listItem.appendChild(removeBtn);
+
+    listItem.addEventListener("click", () => displayTasks(index));
+    projectList.appendChild(listItem);
+  });
+}
+
+function removeProject(index) {
+  projects.splice(index, 1);
+  updateProjectList();
+}
+
+function displayTasks(index) {
+  const selectedProject = projects[index];
+  taskInput.style.display = "block";
+  addTaskBtn.style.display = "block";
+
+  addTaskBtn.addEventListener("click", () => addTaskToProject(selectedProject));
+}
+
+function addTaskToProject(project) {
+  const taskTitle = taskInput.value.trim();
+  if (taskTitle) {
+    project.tasks.push({ title: taskTitle, status: "not completed" });
+    taskInput.value = "";
+    alert("Task added!");
+    listTasks(project);
+  }
+}
+
+function listTasks(project) {
+  const taskList = document.createElement("ul");
+  taskList.className = "task-list";
+
+  project.tasks.forEach((task) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `[${task.status}] ${task.title}`;
+    taskList.appendChild(listItem);
   });
 
+  // Clear previous task list (if any) and display the new one
+  projectDiv.querySelector(".task-list").remove();
+  projectDiv.appendChild(taskList);
 }
-
-function removeProject() {
-  // Your removeProject function logic here
-}
- addProject();

@@ -9,26 +9,25 @@
     height: 8vh;
     background-color: #333;
 }
+.content{
+  display: flex;
+}
 
-  
-  /* Style for the project div */
-  .project {
-    background-color: rgb(190, 194, 194);
-    height: 100vh;
-    width: 20%;
-    margin: 5px;
-    padding: 10px;
-  }
+/* Style for the project div */
+.project {
+  background-color: rgb(190, 194, 194);
+  height: 100vh;
+  width: 20%;
+  margin: 5px;
+  padding: 10px;
+}
   
   /* Style for the project list div */
-  .project-list {
-    background-color: rgb(118, 112, 194);
-    height: 100vh;
-    width: 80%;
-    margin: 5px;
-    padding: 10px;
-  }
-  .content{
-    display: flex;
+.project-list {
+  background-color: rgb(118, 112, 194);
+  height: 100vh;
+  width: 80%;
+  margin: 5px;
+  padding: 10px;
+}
 
-  }
