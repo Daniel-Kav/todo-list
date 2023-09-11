@@ -1,39 +1,32 @@
 
-/* Style for the navigation bar */
-.navbar {
-    background-color: #333; /* Background color for the navigation bar */
-    overflow: hidden;
-  }
-  
-  /* Style for the navigation links */
-  .navbar a {
-    float: left; /* Float the links to the left to create a horizontal layout */
-    display: block; /* Display links as block elements */
-    color: white; /* Text color */
-    text-align: center; /* Center-align text */
-    padding: 14px 16px; /* Add padding around the links */
-    text-decoration: none; /* Remove underline from links */
-  }
-  
-  /* Change link color on hover */
-  .navbar a:hover {
-    background-color: #ddd; /* Background color on hover */
-    color: black; /* Text color on hover */
-  }
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr;
+
+}
+.nav{
+    height: 8vh;
+    background-color: #333;
+}
+
   
   /* Style for the project div */
   .project {
-    margin-top: 15px;
-    background-color: aqua;
-    height: 70vh;
-    width: 50%;
+    background-color: rgb(190, 194, 194);
+    height: 100vh;
+    width: 20%;
+    margin: 5px;
+    padding: 10px;
   }
   
   /* Style for the project list div */
   .project-list {
-    background-color: aqua;
+    background-color: rgb(118, 112, 194);
     height: 100vh;
-    width: 50%;
+    width: 80%;
+    margin: 5px;
+    padding: 10px;
   }
   .content{
     display: flex;

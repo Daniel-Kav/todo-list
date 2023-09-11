@@ -1,6 +1,6 @@
 const content = document.querySelector('.content');
 
-
+const tasks = [];
 // Create a project div
 const projectDiv = document.createElement('div');
 projectDiv.className = 'project';
@@ -20,8 +20,24 @@ content.appendChild(projectList);
 
 function addProject() {
   // Your addProject function logic here
+  projectBtn.addEventListener("click", () => {
+    alert("Add Project");
+    const addList = document.createElement("div");
+    addList.className = "projectList";
+    const projectForm = document.createElement("form");
+    projectForm.classList.add("projectForm");
+    
+    const nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.classList.add("nameInput");
+    projectForm.appendChild(nameInput);
+
+    addList.appendChild(projectForm);
+    projectDiv.appendChild(addList);
+  })
 }
 
 function removeProject() {
   // Your removeProject function logic here
 }
+ addProject();
